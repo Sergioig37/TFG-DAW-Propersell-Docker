@@ -71,4 +71,4 @@ VALUES (0, 'Avenida Siempre Viva 742, Springfield', 200000, 'Departamento', 2);
 
 
 INSERT INTO `propiedad` (`habilitado`, `localizacion`, `precio`, `tipo`, `fk_propietario`) 
-VALUES (1, 'Calle Rosa 456, Shelbyville', 180000, 'Casa', 3);
+VALUES (1, 'Calle Rosa 456, Shelbyville', 180000, 'Casa', 2);
