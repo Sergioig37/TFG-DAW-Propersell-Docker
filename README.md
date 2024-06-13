@@ -4,20 +4,20 @@
 
 ### -Tener docker desktop instalado y abierto. 
 
-#### Descargar [aquí](https://www.docker.com/products/docker-desktop/)
+-  Descargar 4.28.0 (139021) [aquí](https://www.docker.com/products/docker-desktop/)
 
-#### Guía de instalación: [guia](https://docs.docker.com/desktop/install/windows-install/)
-### Tener el puerto 3306 libre.
+- Guía de instalación: [guia](https://docs.docker.com/desktop/install/windows-install/)
+-  Tener el puerto 3306 libre.
 
 ## Pasos:
 
-### Bajar el repositorio de github: 
+1. Bajar el repositorio de github: 
 
 ```
 $ git clone https://github.com/Sergioig37/Docker
 ```
-### Abrir un cmd y entrar en la carpeta de docker.
-### Construir el contenedor con la imagen: 
+2. Abrir un cmd y entrar en la carpeta de docker.
+3. Construir el contenedor con la imagen: 
 ```
 $ docker compose up
 ```   
@@ -25,7 +25,7 @@ Si quieres levantar el contenedor y seguir usando el mismo cmd:
 ```
 $ docker compose up -d 
 ```
-### Para pararlo y borrarlo: 
+## Para pararlo y borrarlo: 
 ```
 $ docker compose down
 ````
