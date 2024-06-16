@@ -37,4 +37,6 @@ $ docker start mysql_propersell_db.
 ```
 $ docker stop mysql_propersell_db.
 ```    
-    
+### Probar conexión
+- **Usuario**: sergio
+- **Contraseña**: 2004

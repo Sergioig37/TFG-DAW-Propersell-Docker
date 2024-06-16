@@ -63,11 +63,11 @@ INSERT INTO `usuario` (
 
 
 INSERT INTO `propiedad` (`habilitado`, `localizacion`, `precio`, `tipo`, `fk_propietario`) 
-VALUES (1, 'Calle Falsa 123, Springfield', 150000, 'Casa', 1);
+VALUES (1, 'Calle Woodbury 123, Springfield', 150000, 'Casa', 1);
 
 
 INSERT INTO `propiedad` (`habilitado`, `localizacion`, `precio`, `tipo`, `fk_propietario`) 
-VALUES (0, 'Avenida Siempre Viva 742, Springfield', 200000, 'Departamento', 2);
+VALUES (0, 'Avenida London 742, Springfield', 200000, 'Departamento', 2);
 
 
 INSERT INTO `propiedad` (`habilitado`, `localizacion`, `precio`, `tipo`, `fk_propietario`) 
