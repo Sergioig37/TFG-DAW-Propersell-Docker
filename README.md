@@ -2,6 +2,8 @@
 
 ## Requisitos:
 
+### Archivo .env con las variables definidas en el docker-compose
+
 ### -Tener docker desktop instalado y abierto. 
 
 -  Descargar 4.28.0 (139021) [aquí](https://www.docker.com/products/docker-desktop/)
