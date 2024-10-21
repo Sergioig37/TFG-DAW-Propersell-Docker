@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS `propersell`
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS `propersell`;
+ 
+
 
 USE `propersell`;
 
@@ -27,9 +27,8 @@ CREATE TABLE `alerta_cliente` (
   `id_usuario` bigint(20) NOT NULL,
   `id_alerta` bigint(20) NOT NULL,
   PRIMARY KEY (`id_usuario`,`id_alerta`),
-  KEY `FKjsryp9mnjewnmhg3i70buyspd` (`id_alerta`),
-  CONSTRAINT `FKe4aqsfcb5o8gyy5r1fgu98ddn` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
-  CONSTRAINT `FKjsryp9mnjewnmhg3i70buyspd` FOREIGN KEY (`id_alerta`) REFERENCES `alerta` (`id_alerta`)
+  CONSTRAINT `FK_usuario_alerta` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
+  CONSTRAINT `FK_alerta_usuario` FOREIGN KEY (`id_alerta`) REFERENCES `alerta` (`id_alerta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `propiedad` (
@@ -39,36 +38,34 @@ CREATE TABLE `propiedad` (
   `precio` bigint(20) DEFAULT NULL,
   `tipo` varchar(255) DEFAULT NULL,
   `fk_propietario` bigint(20) DEFAULT NULL,
+  `superficie` INTEGER DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKgmgmdcfl9qgadb3ka6rqkkro` (`fk_propietario`),
-  CONSTRAINT `FKgmgmdcfl9qgadb3ka6rqkkro` FOREIGN KEY (`fk_propietario`) REFERENCES `usuario` (`id_usuario`)
+  CONSTRAINT `FK_propietario` FOREIGN KEY (`fk_propietario`) REFERENCES `usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- Inserciones de datos (aseg√∫rate de que la codificaci√≥n sea correcta)
 INSERT INTO `usuario` (
   `id_usuario`, `username`, `password`, `correo`, `nombre_real`, `numero_telefono`, `role`, `habilitado`
 ) VALUES (
-  1, 'SergioAdmin', '$2a$12$f/yfMl5wct2bAIS5HTdU0eRZNoSDejBBk.8vekifKuNQ81EpAbBD.', 'sergiotur04@gmail.com', 'Sergio Iglesias GarcÌ≠a', '684264390', 'ADMIN', true
+  1, 'SergioAdmin', '$2a$12$f/yfMl5wct2bAIS5HTdU0eRZNoSDejBBk.8vekifKuNQ81EpAbBD.', 'sergiotur04@gmail.com', 'Sergio Iglesias Garc√≠a', '684264390', 'ADMIN', true
 );
 
 INSERT INTO `alerta` (`descripcion`, `nombre`) VALUES
-  ('Propiedades Rebajadas', 'Se han rebajado los precios de m˙ltiples propiedades'),
-  ('Casas aÒadidas ', 'Se han aÒadidio nuevas casas a la p·gina'),
-  ('Pisos aÒadidos', 'Se han aÒadido nuevos pisos');
+  ('Propiedades Rebajadas', 'Se han rebajado los precios de m√∫ltiples propiedades'),
+  ('Casas a√±adidas', 'Se han a√±adido nuevas casas a la p√°gina'),
+  ('Pisos a√±adidos', 'Se han a√±adido nuevos pisos');
 
 INSERT INTO `usuario` (
   `correo`, `habilitado`, `nombre_real`, `numero_telefono`, `password`, `role`, `username`
 ) VALUES
-  ('usuario2@example.com', 1, 'David MenÈndez Putteman', '685932574', '$2a$12$CsIQ1NjazCRreNrdKekLKeqzvkR2pQv.fu0NWPfsEzZhLBOfOecr2', 'USER', 'Davis'),
-  ('usuario3@example.com', 1, 'Ra˙l Gonz·lez', '685932574', '$2a$12$CsIQ1NjazCRreNrdKekLKeqzvkR2pQv.fu0NWPfsEzZhLBOfOecr2', 'USER', 'dav');
+  ('usuario2@example.com', 1, 'David Men√©ndez Putteman', '685932574', '$2a$12$CsIQ1NjazCRreNrdKekLKeqzvkR2pQv.fu0NWPfsEzZhLBOfOecr2', 'USER', 'Davis'),
+  ('usuario3@example.com', 1, 'Ra√∫l Gonz√°lez', '685932574', '$2a$12$CsIQ1NjazCRreNrdKekLKeqzvkR2pQv.fu0NWPfsEzZhLBOfOecr2', 'USER', 'dav');
 
+INSERT INTO `propiedad` (`habilitado`, `localizacion`, `precio`, `tipo`, `fk_propietario`, `superficie`) 
+VALUES (1, 'Calle Woodbury 123, Springfield', 150000, 'Casa', 1, 50);
 
-INSERT INTO `propiedad` (`habilitado`, `localizacion`, `precio`, `tipo`, `fk_propietario`) 
-VALUES (1, 'Calle Woodbury 123, Springfield', 150000, 'Casa', 1);
+INSERT INTO `propiedad` (`habilitado`, `localizacion`, `precio`, `tipo`, `fk_propietario`, `superficie`) 
+VALUES (0, 'Avenida London 742, Springfield', 200000, 'Departamento', 2, 30);
 
-
-INSERT INTO `propiedad` (`habilitado`, `localizacion`, `precio`, `tipo`, `fk_propietario`) 
-VALUES (0, 'Avenida London 742, Springfield', 200000, 'Departamento', 2);
-
-
-INSERT INTO `propiedad` (`habilitado`, `localizacion`, `precio`, `tipo`, `fk_propietario`) 
-VALUES (1, 'Calle Rosa 456, Shelbyville', 180000, 'Casa', 2);
+INSERT INTO `propiedad` (`habilitado`, `localizacion`, `precio`, `tipo`, `fk_propietario`, `superficie`) 
+VALUES (1, 'Calle Rosa 456, Shelbyville', 180000, 'Casa', 2, 60);
